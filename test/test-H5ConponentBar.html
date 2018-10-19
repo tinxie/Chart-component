@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width,minimum-scale=1,maximum-scale=1">
+	<title>Doc</title>
+     <style>
+         body{
+            margin: 0;
+            padding: 0;
+            background-color: #000;
+            font-size: 12px;
+         }
+
+         .iphone{
+            width:340px;
+            height:540px;
+            background-color: #fff;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            margin:-270px 0 0 -170px;
+         }
+
+     </style>
+     <script src="../js/lib/jquery.js"></script>
+     <script src="../js/test-H5ConponentBase.js"></script>
+     <link rel="stylesheet" href="../css/test-H5ConponentBase.css">
+
+     <!-- 引入柱状图资源 -->
+      <script src="../js/test-H5ConponentBar.js"></script>
+     <link rel="stylesheet" href="../css/test-H5ConponentBar.css">
+</head>
+<body>
+	<!-- 用于开发测试 H5ComponentBase 对象（基本的图文组件）-->
+	<div class="iphone">
+
+    </div>
+
+    <script>
+        //cfg对象控制添加参数
+        var cfg = {
+            type : 'bar',
+            text : 'text',
+            height: 530,
+            width: 600,
+            // bg:'p1_people.png',
+            css:{
+               top:100,
+            opacity:0
+              
+            },
+
+            animateIn:{opacity:1,top:200},
+            animateOut:{opacity:0,top:200},
+      //设置水平局中
+            center:true,
+            //数据iten[3],item[4]分别是X轴Y轴，要设置就一起设置
+            data:[
+              ['js',0.4,'#ff7676'],
+              ['html/css',0.2],
+              ['css3',0.1],
+              ['h5',0.3],
+              ['jquery',0.65],
+              ['bootstrap',0.3],
+              ['ang',0.6]
+        ]
+        };
+
+    
+
+        //将js引进之后，可以直接new一下这个组件并传参
+        var h5  = new H5ComponentBar('myBarComponent',cfg);
+        //将H5组件放入.iphone中
+        $('.iphone').append(h5);
+
+        //点击body自动执行基本图文组件
+
+       var leave  = true;
+       $('body').click(function(){
+        leave = !leave;
+        $('.h5_component').trigger( leave ? 'onLeave' : 'onLoad');
+       })
+
+    </script>
+</body>
+</html>

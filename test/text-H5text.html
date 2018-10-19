@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>addpage</title>
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <!-- 基本资源库 -->
+    <script src="../js/lib/jquery.js"></script>
+    <script src="../js/lib/jquery-ui.min.js"></script>
+    <script src="../js/lib/jquery.fullpage.js"></script>
+    <!-- h5对象资源&管理内容：页-组件 -->
+	<script src="../js/test-h5.js"></script>
+	<link rel="stylesheet" href="../css/test-h5.css">
+    <!-- 将基本图文组件加载 -->
+    <script src="../js/test-H5ConponentBase.js"></script>
+    <link rel="stylesheet" href="../css/test-H5ConponentBase.css">
+
+    <style>
+    	body{padding:0;margin:0;}
+    </style>
+</head>
+<body>
+	<!-- 测试内容组织功能以及fullpage页面切换&组件切换 -->
+	<!-- 内容组织管理,有可能会加载若干个资源 -->
+    <script>
+    	$(function(){
+    		
+    		//js中定义原型函数
+    		var h5 = new H5();
+
+    		// addpage建立页面,addcomponent添加组件,
+    		h5.addPage('face','aa')
+    		   .addComponent('logo',{
+    		   	text:'logo',
+    		   	width:400,
+                height:400,
+                css:{backgroundColor:'red',top:50,opacity:0},
+                center:true,
+                animateIn:{opacity:1},
+                animateOut:{opacity:0}
+
+    		   })
+
+    		   .addComponent('slogan',{
+    		   	text:'slogan',
+    		   	width:400,
+                height:100,
+                css:{backgroundColor:'orange',top:400,opacity:0},
+                center:true,
+                 animateIn:{opacity:1},
+                animateOut:{opacity:0}
+
+
+            })
+
+    		 h5.addPage('desc',"描述")
+    		   .addComponent('caption',{
+    		   	text:'核心理念',
+    		   	width:400,
+                height:400,
+                css:{backgroundColor:'red',top:200,opacity:0},
+                center:true,
+                 animateIn:{opacity:1},
+                animateOut:{opacity:0}
+
+           })
+    		  h5.addPage('page-3',"第三页")
+    		   .addComponent('caption',{
+    		   	text:'课程方向分布',
+    		   	width:400,
+                height:400,
+                css:{backgroundColor:'red',top:200,opacity:0},
+                center:true,
+                animateIn:{opacity:1},
+                animateOut:{opacity:0}
+
+            })
+    		  .loader();
+    	})
+    </script>
+</body>
+</html>
